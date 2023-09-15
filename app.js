@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',() => {
+window.onload = () => {
     const pages = document.querySelectorAll(".page");
     const nbpages = pages.length;
     console.log(nbpages);
@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded',() => {
         pages[pageActive].classList.add("active");
         console.log("suivant!!!");
     }
+
+    function checkVerif() {
+        let reponse = ""
+        for (let i = 1; i < 3; i++) {
+            const input = document.querySelector(`input[name="q${i}"]:checked`)
+            if (input) {
+                reponse = input.value
+                break; // Sortir de la boucle si une réponse est trouvée
+            }
+        }
+    }
+    console.log (reponse)
     //gestionnaire d'évènement des boutons
     btnPageSuivante.addEventListener('click', handleNext)
-})
+}
